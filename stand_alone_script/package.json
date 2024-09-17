@@ -1,0 +1,17 @@
+{
+  "name": "raycast_text_correction",
+  "version": "1.0.0",
+  "description": "text correction using ollama",
+  "main": "text-correct.js",
+  "author": "Shabaz",
+  "license": "MIT",
+  "dependencies": {
+    "@raycast/api": "^1.82.5",
+    "clipboardy": "^4.0.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node text-correct.js"
+  }
+}
