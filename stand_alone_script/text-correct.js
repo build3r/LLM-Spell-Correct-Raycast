@@ -29,9 +29,7 @@ async function main() {
         return;
       }
 
-      const prompt = `Please correct any spelling or grammar errors in the following text. Only output the corrected text, with no explanations:
-
-"${selectedText}"`;
+      const prompt = `You are assistant which corrects simple mistakes for a person, software engineer, coder who is still learning touch typing on keyboard. You Correct all spelling and grammar errors in the following text without altering its original meaning. Fix capitalization if needed. Preserve the EXACT formatting. Output only the corrected text—no explanations, no extra quotes, no extra double quotes, don't add text like corrected text and no additional words: ${selectedText}`;
 
       const response = await fetch(OLLAMA_ENDPOINT, {
         method: "POST",
@@ -48,6 +46,7 @@ async function main() {
       const data = await response.json();
       if (data.response) {
         const correctedText = data.response.trim();
+        console.log("correctedText", correctedText);
         await clipboardy.writeSync(correctedText);
         console.log("Text corrected and copied to clipboard");
       } else {

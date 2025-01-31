@@ -8,6 +8,7 @@ import {
   Action,
   Detail,
   closeMainWindow,
+  PopToRootType,
   Icon,
 } from "@raycast/api";
 import { useState, useEffect, useRef } from "react";
@@ -50,7 +51,7 @@ export default function Command() {
         return;
       }
 
-      const prompt = `Please correct any spelling or grammar errors in the following text. Only output the corrected text, with no explanations, no pleasantries, no extra double quotes and keep the original formatting: "${textToCorrect}"`;
+      const prompt = `You are assistant which corrects simple mistakes for a person, coder, software engineer who is still learning touch typing on keyboard. You Correct all spelling and grammar errors in the following text without altering its original meaning. Fix capitalization if needed. Preserve the EXACT formatting. Output only the corrected text—no explanations, no extra quotes, no extra double quotes, don't add text like corrected text and no additional words: ${selectedText}`;
       console.log("prompt", prompt);
       const response = await fetch(OLLAMA_ENDPOINT, {
         method: "POST",
@@ -107,7 +108,7 @@ export default function Command() {
               content={correctedText}
               icon={Icon.Clipboard}
               // shortcut={{ modifiers: ["cmd"], key: "enter" }}
-              onCopy={closeMainWindow}
+              onCopy={closeMainWindow({ popToRootType: PopToRootType.Immediate })}
             />
           )}
           {correctedText && <Action.Paste title="Enter Text" icon={Icon.TextInput} content={correctedText} />}
