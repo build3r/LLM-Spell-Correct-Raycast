@@ -9,6 +9,9 @@
 - ⚡ **Seamless Raycast Integration** – Works instantly within Raycast  
 - 🧠 **Powered by gnokit/improve-grammar** – High-quality LLM-based corrections  
 
+## 📷 Screenshot
+![Screenshot](./assets/image.png)
+
 ## 🎯 Shortcuts  
 - **`Alt + F`** → Trigger correction on selected text  
 - **`Enter`** → Copy corrected text  
